@@ -10,8 +10,8 @@ jobs:
 
        
        - name: Execute Cowsay CMD 
-         run: cowsay -f dragon "Run for cover..." >> dragon.txt 
-         run: ls -ltra  
+         #run: cowsay -f dragon "Run for cover..." >> dragon.txt 
+         #run: ls -ltra  
          run: pwd 
 
        - uses: actions/upload-artifact@v4
