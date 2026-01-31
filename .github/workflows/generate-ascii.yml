@@ -12,10 +12,12 @@ jobs:
        - name: Execute Cowsay CMD 
          run: cowsay -f dragon "Run for cover..." >> dragon.txt 
               ls -ltra  
+              pwd 
 
        - uses: actions/upload-artifact@v4
          with:
            name: dragon.txt 
+           path: 
 
 
        - name: Sleep for 30 secs
