@@ -11,7 +11,7 @@ jobs:
 
        - name: list Repo Files 
          run: pwd 
-         run: ls -ltra  
+              ls -ltra  
 
        - name: Executing Shell script
          run: |
