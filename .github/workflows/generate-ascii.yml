@@ -16,5 +16,5 @@ jobs:
        - name: Executing Shell script
          run: |
            chmod +x ascii-scipt.sh
-           ZeevZR/Project-B/.github/ascii-scipt.sh
+           ./ascii-scipt.sh
         
