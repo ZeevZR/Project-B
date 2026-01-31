@@ -7,7 +7,7 @@ jobs:
 
        steps:
        - name: Checkout Repo
-         uses: actions/checkout@v6
+         uses: actions/checkout@v4
 
        - name: list Repo Files 
          run: pwd 
@@ -16,5 +16,5 @@ jobs:
        - name: Executing Shell script
          run: |
            chmod +x ascii-scipt.sh
-           ./ascii-scipt.sh
+           ZeevZR/Project-B/.github/ascii-scipt.sh
         
