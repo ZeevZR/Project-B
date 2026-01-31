@@ -15,6 +15,6 @@ jobs:
 
        - name: Executing Shell script
          run: |
-           chmod +x ascii-scipt.sh
-           ./ascii-scipt.sh
+           chmod +x .github/ascii-scipt.sh
+           ./.github/ascii-scipt.sh
         
