@@ -9,28 +9,9 @@ jobs:
        - name: Checkout Repo
          uses: actions/checkout@v6
 
-       - name: Install cowsay
-         run: |
-          sudo apt-get update
-          sudo apt-get install -y cowsay      
+       - name: list Repo Files 
+         run: ls -ltra  
 
-       - name: Generate ASCII Artwork 
-         run: cowsay -f dragon "Run for cover, I am a Dragon...RAWR" >> dragon.txt 
-
-       - name: Test File Exists
-         run: grep -i "dragon" dragon.txt 
-
-       - name: Read File 
-         run: cat dragon.txt 
-
-       - name: List Repo Files
-         run: ls -ltra     
- 
- #      - name: List files 
- #        run: ls 
-
- #      - name: Read file 
- #        run: cat README.md 
-
-
-       
+       - name: Executrtnh Shell script
+         run: ./ascii-script.sh
+        
