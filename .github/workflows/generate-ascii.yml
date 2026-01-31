@@ -10,20 +10,21 @@ jobs:
 
        
        - name: Execute Cowsay CMD 
-         #run: cowsay -f dragon "Run for cover..." >> dragon.txt 
-         #run: ls -ltra  
-         run: pwd 
+         run: cowsay -f dragon "Run for cover..." >> dragon.txt 
+         run: ls -ltra  
+         
 
        - uses: actions/upload-artifact@v4
          with:
            name: dragon.txt 
-           path: 
+           path: /home/runner/work/Project-B/Project-B/
 
 
        - name: Sleep for 30 secs
          run: sleep 30
         
     test_job_2:
+       needs: build_job_1
        runs-on: ubuntu-latest 
        steps:
        - name: sleep for 10 seconds 
@@ -31,7 +32,9 @@ jobs:
 
        - uses: actions/download-artifact@v5
          with:
-           name: dragon.txt    
+           name: dragon.txt 
+           path: /home/runner/work/Project-B/Project-B
+
 
        - name: Test File Exists
          run: grep -i "dragon" dragon.txt 
