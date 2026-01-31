@@ -8,10 +8,14 @@ jobs:
        - name: Install Cowsay 
          run: sudo apt-get install cowsay -y
 
+       
+
    
        - name: Execute Cowsay CMD 
          run: cowsay -f dragon "Run for cover..." >> dragon.txt 
               ls -ltra  
+       - uses: actions/upload-artifact@v4
+         with: dragon.txt       
 
        - name: Sleep for 30 secs
          run: sleep 30
@@ -21,6 +25,9 @@ jobs:
        steps:
        - name: sleep for 10 seconds 
          run: sleep 10 
+
+       - uses: actions/download-artifact@v4
+         with: dragon.txt     
 
        - name: Test File Exists
          run: grep -i "dragon" dragon.txt 
