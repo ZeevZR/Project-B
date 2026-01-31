@@ -20,15 +20,15 @@ jobs:
            path: /home/runner/work/Project-B/Project-B/
 
 
-       - name: Sleep for 30 secs
-         run: sleep 30
+       - name: Sleep for 5 secs
+         run: sleep 5
         
     test_job_2:
        needs: build_job_1
        runs-on: ubuntu-latest 
        steps:
-       - name: sleep for 10 seconds 
-         run: sleep 10 
+       - name: sleep for 3 seconds 
+         run: sleep 3 
 
        - uses: actions/download-artifact@v5
          with:
@@ -40,8 +40,15 @@ jobs:
          run: grep -i "dragon" dragon.txt 
 
     deploy_job_3:
+       needs: build_job_2
        runs-on: ubuntu-latest 
        steps:
+
+       - uses: actions/download-artifact@v5
+         with:
+           name: dragon.txt 
+           path: /home/runner/work/Project-B/Project-B
+
        - name: Read file
          run: cat dragon.txt
 
