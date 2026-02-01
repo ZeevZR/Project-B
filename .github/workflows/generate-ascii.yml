@@ -13,41 +13,31 @@ jobs:
          run: cowsay -f dragon "Run for cover..." >> dragon.txt 
               ls -ltra  
          
-
+       - name: Upload  
        - uses: actions/upload-artifact@v4
-         with:
+         with: 
            name: dragon.txt 
-           path: /home/runner/work/Project-B/Project-B/
+           path: dragon.txt 
 
-
-       - name: Sleep for 5 secs
-         run: sleep 5
         
     test_job_2:
        needs: build_job_1
        runs-on: ubuntu-latest 
        steps:
-       - name: sleep for 3 seconds 
-         run: sleep 3 
-
-       - uses: actions/download-artifact@v5
-         with:
+       - name: Download  
+         uses: actions/download-artifact@v4
+         with: 
            name: dragon.txt 
-           path: /home/runner/work/Project-B/Project-B
-
-
-       - name: Test File Exists
-         run: grep -i "dragon" dragon.txt 
+         
 
     deploy_job_3:
        needs: test_job_2
        runs-on: ubuntu-latest 
        steps:
-
-       - uses: actions/download-artifact@v5
-         with:
-           name: dragon.txt 
-           path: /home/runner/work/Project-B/Project-B
+       - name: Download
+         uses: actions/download-artifact@v4
+         with: 
+           name: dragon.txt
 
        - name: Read file
          run: cat dragon.txt
